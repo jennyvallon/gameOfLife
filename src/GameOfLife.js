@@ -1,5 +1,8 @@
-function Board(){
-    this.create;
+function Board(columns,rows){
+    this.dimensions={};
+    this.dimensions.columns=columns;
+    this.dimensions.rows=rows;
+    return this.init();
 };
 
 Board.prototype.create=function(length){
@@ -14,4 +17,10 @@ Board.prototype.create=function(length){
     return arr;
 };
 
-var board=new Board();
+Board.prototype.init=function(){
+    var array=this.create(this.dimensions.columns,this.dimensions.rows);
+    return array;
+};
+
+//var board=new Board();
+

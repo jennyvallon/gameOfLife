@@ -1,14 +1,26 @@
 //test
 describe("Game of Life", function() { 
     describe("Board", function() { 
-        it("should have a board",function(){
-            expect(board).toBeTruthy();
+        var board;
+        var col;
+        var row;
+        
+        beforeEach(function() {
+            col=Math.floor((Math.random() * 100) + 1);
+            row=Math.floor((Math.random() * 100) + 1);
+            board=new Board(col,row);
         });
-        it("board should be created dynamically",function(){
-            var x=6; 
-            var y=8;
-            expect(board.create(x,y).length).toEqual(x);
-            expect(board.create(x,y)[0].length).toEqual(y);
+        
+        it("should be an array",function(){
+            expect(Array.isArray(board)).toEqual(true);
+        });
+        
+        it("first argument should be columns",function(){
+            expect(board.length).toEqual(col);
+        });
+        
+        it("second argument should be rows",function(){
+            expect(board[0].length).toEqual(row);
         });
     });
     describe("Cell", function(){
