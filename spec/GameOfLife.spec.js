@@ -23,7 +23,4 @@ describe("Game of Life", function() {
             expect(board[0].length).toEqual(row);
         });
     });
-    describe("Cell", function(){
-        
-    });
 });
