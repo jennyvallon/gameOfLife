@@ -2,7 +2,6 @@ function life(grid) {
     return Array.isArray(grid);
 }
 
-function neighborCount(gird) {
-    
+function neighborCount(grid) {
     return 0;
 }
