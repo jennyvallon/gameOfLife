@@ -1,24 +1,12 @@
 //test
 describe("Game of Life", function() { 
-    var grid = [
-        [0,0,0],
-        [0,0,0],
-        [0,0,0]
-    ];
-    it("grid should exist",function(){
-        expect(life(grid)).toBeTruthy();
+    it("should have a board",function(){
+        expect(board).toBeTruthy();
     });
-    
-    it('should count neighbors when no neighbors', function () {
-        expect(neighborCount(grid)).toEqual(0);
-    });
-    
-    grid = [
-        [1,0,0],
-        [0,0,0],
-        [0,0,0]
-    ];
-    it('should expect 1 neighbor',function(){
-        expect(grid[0][0]).toEqual(1);
+    it("board should be created dynamically",function(){
+        var x=6; 
+        var y=8;
+        expect(board.create(x,y).length).toEqual(x);
+        expect(board.create(x,y)[0].length).toEqual(y);
     });
 });
