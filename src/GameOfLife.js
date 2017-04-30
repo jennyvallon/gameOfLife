@@ -20,12 +20,16 @@ Board.prototype.create=function(length){
     return arr;
 };
 
+Board.prototype.constructor=Board;
+
 Board.prototype.populate=function(array){
     for(i=0;i<array.length;i++){
         for(j=0; j<array[i].length;j++){
             array[i][j]=new Cell();
+            this.__proto__.cellCounter++;
         }
     }
+//    array.__proto__=this;
     return array;
 };
 

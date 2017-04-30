@@ -22,10 +22,19 @@ describe("Game of Life", function() {
         it("second argument should be rows",function(){
             expect(board[0].length).toEqual(row);
         });
-        it("should contain cells",function(){
-            expect(board[0][0].constructor.name==="Cell").toEqual(true);
-        });
         
+        it("should contain cells",function(){
+            var isCell;
+            for(i=0;i<board.length;i++){
+                for(j=0;j<board[i].length;j++){
+                    if(board[i][j]!==new Cell()){
+                        isCell=false;
+                    }
+                }
+            }
+            isCell=true;
+            expect(isCell).toEqual(true);
+        });
         
     });
 });
