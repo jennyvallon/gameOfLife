@@ -11,11 +11,17 @@ describe("Game of Life", function() {
             board=new Board(col,row);
         });
         
-        it("should be an array",function(){
+        it("board instance should return an array",function(){
             expect(Array.isArray(board)).toEqual(true);
         });
         
-        it("first argument should be columns",function(){
+        it("board instance should return a 2d array",function(){
+            for(i=0;i<board.length;i++){
+                expect(Array.isArray(board[i])).toEqual(true);
+            }
+        });
+        
+        it("the constructors first argument should be columns",function(){
             expect(board.length).toEqual(col);
         });
         
@@ -23,26 +29,16 @@ describe("Game of Life", function() {
             expect(board[0].length).toEqual(row);
         });
         
-        it("should contain cells",function(){
-            var isCell;
+        it("each index should contain a cell",function(){
             for(i=0;i<board.length;i++){
                 for(j=0;j<board[i].length;j++){
-                    if(board[i][j]!==new Cell()){
-                        isCell=false;
-                    }
+                    expect(board[i][j].constructor===Cell).toEqual(true);
                 }
             }
-            isCell=true;
-            expect(isCell).toEqual(true);
         });
         
-        it("should be able to access Board prototype properties",function(){
-            expect(board.constructor).toEqual(Board);
-            expect(board._populate).toBeTruthy();
-            expect(board._init).toBeTruthy();
-            expect(board._create).toBeTruthy();
-            expect(board._dimensions).toBeTruthy();
-            
+        it("board instance should be able to access Board prototype properties",function(){
+            expect(Board.prototype.isPrototypeOf(board)).toEqual(true);
         });
     });
 });

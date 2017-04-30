@@ -28,7 +28,7 @@ Board.prototype._populate=function(array){
             array[i][j]=new Cell();
         }
     }
-    //make returned Board of type Board instead of Type Array
+    //make returned board have "Board" prototype
     array.__proto__=this;
     return array;
 };
