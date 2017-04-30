@@ -1,3 +1,7 @@
+function Cell(){
+    
+}
+
 function Board(columns,rows){
     this.dimensions={};
     this.dimensions.columns=columns;
@@ -13,12 +17,21 @@ Board.prototype.create=function(length){
         var args = Array.prototype.slice.call(arguments, 1);
         while(i--) arr[length-1 - i] = this.create.apply(this, args);
     }
-
     return arr;
+};
+
+Board.prototype.populate=function(array){
+    for(i=0;i<array.length;i++){
+        for(j=0; j<array[i].length;j++){
+            array[i][j]=new Cell();
+        }
+    }
+    return array;
 };
 
 Board.prototype.init=function(){
     var array=this.create(this.dimensions.columns,this.dimensions.rows);
+    array=this.populate(array);
     return array;
 };
 
