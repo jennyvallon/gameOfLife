@@ -41,4 +41,15 @@ describe("Game of Life", function() {
             expect(Board.prototype.isPrototypeOf(board)).toEqual(true);
         });
     });
+    describe("Cell", function() { 
+        
+        beforeEach(function() {
+            cell=new Cell;
+        });
+        it("should have two states:alive or dead",function(){
+            expect(Object.keys(cell.state).length).toEqual(2);
+            expect(Object.keys(cell.state)).toContain("alive");
+            expect(Object.keys(cell.state)).toContain("dead");
+        });
+    });
 });

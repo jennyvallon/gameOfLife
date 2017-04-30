@@ -1,5 +1,8 @@
 function Cell(){
-    
+    this.state={
+        alive:false,
+        dead:true
+    };
 }
 
 function Board(columns,rows){
