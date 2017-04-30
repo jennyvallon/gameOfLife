@@ -38,6 +38,11 @@ describe("Game of Life", function() {
         
         it("should be able to access Board prototype properties",function(){
             expect(board.constructor).toEqual(Board);
+            expect(board._populate).toBeTruthy();
+            expect(board._init).toBeTruthy();
+            expect(board._create).toBeTruthy();
+            expect(board._dimensions).toBeTruthy();
+            
         });
     });
 });

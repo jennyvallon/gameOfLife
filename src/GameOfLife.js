@@ -3,39 +3,39 @@ function Cell(){
 }
 
 function Board(columns,rows){
-    this.dimensions={};
-    this.dimensions.columns=columns;
-    this.dimensions.rows=rows;
-    return this.init();
+    this._dimensions={};
+    this._dimensions.columns=columns;
+    this._dimensions.rows=rows;
+    return this._init();
 };
 
-Board.prototype.create=function(length){
+Board.prototype._create=function(length){
     var arr = new Array(length || 0),
         i = length;
 
     if (arguments.length > 1) {
         var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = this.create.apply(this, args);
+        while(i--) arr[length-1 - i] = this._create.apply(this, args);
     }
     return arr;
 };
 
 Board.prototype.constructor=Board;
 
-Board.prototype.populate=function(array){
+Board.prototype._populate=function(array){
     for(i=0;i<array.length;i++){
         for(j=0; j<array[i].length;j++){
             array[i][j]=new Cell();
-            this.__proto__.cellCounter++;
         }
     }
+    //make returned Board of type Board instead of Type Array
     array.__proto__=this;
     return array;
 };
 
-Board.prototype.init=function(){
-    var array=this.create(this.dimensions.columns,this.dimensions.rows);
-    array=this.populate(array);
+Board.prototype._init=function(){
+    var array=this._create(this._dimensions.columns,this._dimensions.rows);
+    array=this._populate(array);
     return array;
 };
 
