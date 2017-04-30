@@ -11,25 +11,25 @@ describe("Game of Life", function() {
             board=new Board(col,row);
         });
         
-        it("board instance should return an array",function(){
+        it("instance should return an array",function(){
             expect(Array.isArray(board)).toEqual(true);
         });
         
-        it("board instance should return a 2d array",function(){
+        it("instance should return a 2d array",function(){
             for(i=0;i<board.length;i++){
                 expect(Array.isArray(board[i])).toEqual(true);
             }
         });
         
-        it("the constructors first argument should be columns",function(){
+        it("constructors first argument should be columns",function(){
             expect(board.length).toEqual(col);
         });
         
-        it("second argument should be rows",function(){
+        it("constructors second argument should be rows",function(){
             expect(board[0].length).toEqual(row);
         });
         
-        it("each index should contain a cell",function(){
+        it("each row index should contain a cell",function(){
             for(i=0;i<board.length;i++){
                 for(j=0;j<board[i].length;j++){
                     expect(board[i][j].constructor===Cell).toEqual(true);
@@ -46,6 +46,11 @@ describe("Game of Life", function() {
         beforeEach(function() {
             cell=new Cell;
         });
+        
+        it("constructor should create an instance of Cell",function(){
+            expect(cell instanceof Cell).toEqual(true);
+        });
+        
         it("should have two states:alive or dead",function(){
             expect(Object.keys(cell.state).length).toEqual(2);
             expect(Object.keys(cell.state)).toContain("alive");
