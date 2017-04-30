@@ -36,5 +36,8 @@ describe("Game of Life", function() {
             expect(isCell).toEqual(true);
         });
         
+        it("should be able to access Board prototype properties",function(){
+            expect(board.constructor).toEqual(Board);
+        });
     });
 });

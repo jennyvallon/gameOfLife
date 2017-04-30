@@ -29,7 +29,7 @@ Board.prototype.populate=function(array){
             this.__proto__.cellCounter++;
         }
     }
-//    array.__proto__=this;
+    array.__proto__=this;
     return array;
 };
 
