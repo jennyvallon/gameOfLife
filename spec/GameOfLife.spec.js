@@ -37,8 +37,8 @@ describe("Game of Life", function() {
             }
         });
         
-        it("board instance should be able to access Board prototype properties",function(){
-            expect(Board.prototype.isPrototypeOf(board)).toEqual(true);
+        it("constructor should return instances of Board",function(){
+            expect(board instanceof Board).toEqual(true);
         });
     });
     describe("Cell", function() { 
