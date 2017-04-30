@@ -42,7 +42,7 @@ describe("Game of Life", function() {
         });
     });
     describe("Cell", function() { 
-        
+            var cell;
         beforeEach(function() {
             cell=new Cell;
         });
