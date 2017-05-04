@@ -1,9 +1,17 @@
 function Cell(){
-    this.state={
-        alive:false,
-        dead:true
+    var alive={alive:true,dead:false};
+    var dead={alive:false,dead:true};
+    
+    this.state=dead;
+    
+    this.toggleState=function(){
+        if(this.state===alive){
+            this.state=dead;
+        }else if(this.state===dead){
+            this.state=alive;
+        }
     };
-}
+};
 
 function Board(columns,rows){
     this._dimensions={};
@@ -15,7 +23,7 @@ function Board(columns,rows){
 Board.prototype._create=function(length){
     var arr = new Array(length || 0),
         i = length;
-
+        
     if (arguments.length > 1) {
         var args = Array.prototype.slice.call(arguments, 1);
         while(i--) arr[length-1 - i] = this._create.apply(this, args);

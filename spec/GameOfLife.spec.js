@@ -42,7 +42,7 @@ describe("Game of Life", function() {
         });
     });
     describe("Cell", function() { 
-            var cell;
+        var cell;
         beforeEach(function() {
             cell=new Cell;
         });
@@ -56,5 +56,16 @@ describe("Game of Life", function() {
             expect(Object.keys(cell.state)).toContain("alive");
             expect(Object.keys(cell.state)).toContain("dead");
         });
+        
+        it("should be able to toggle between the two states",function(){
+            expect(cell.state.alive).toEqual(false);
+            expect(cell.state.dead).toEqual(true);
+            cell.toggleState();
+            expect(cell.state.alive).toEqual(true);
+            expect(cell.state.dead).toEqual(false);
+            cell.toggleState();
+            expect(cell.state.alive).toEqual(false);
+            expect(cell.state.dead).toEqual(true);
+        });  
     });
 });
