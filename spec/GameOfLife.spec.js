@@ -82,4 +82,26 @@ describe("Game of Life", function() {
             expect(cell.value()).toEqual(0);
         });
     });
+    
+    describe("Board of Cells", function() { 
+        var board;
+        var col;
+        var row;
+        
+        beforeEach(function() {
+            col=Math.floor((Math.random() * 100) + 1);
+            row=Math.floor((Math.random() * 100) + 1);
+            board=new Board(col,row);
+        });
+        
+        it("should have access to its own coordinates on the Board",function(){
+            for(i=0;i<board.length;i++){
+                for(j=0;j<board[i].length;j++){
+                    expect(board[i][j].coordinates).toEqual(jasmine.any(Object));
+                    expect(board[i][j].coordinates.x).toEqual(i);
+                    expect(board[i][j].coordinates.y).toEqual(j);
+                }
+            } 
+        });
+    });
 });

@@ -1,6 +1,11 @@
-function Cell(){
+function Cell(x,y){
     var alive={alive:true,dead:false};
     var dead={alive:false,dead:true};
+    
+    this.coordinates={
+        x:x,
+        y:y
+    };
     
     this.state=dead;
     
@@ -11,10 +16,13 @@ function Cell(){
             this.state=alive;
         }
     };
+    
     this.value=function(){
         if(this.state===alive){return 1;}
         else if(this.state===dead){return 0;}
     };
+    
+    
 };
 
 function Board(columns,rows){
@@ -40,7 +48,7 @@ Board.prototype.constructor=Board;
 Board.prototype._populate=function(array){
     for(i=0;i<array.length;i++){
         for(j=0; j<array[i].length;j++){
-            array[i][j]=new Cell();
+            array[i][j]=new Cell(i,j);
         }
     }
     //make returned board have "Board" prototype
