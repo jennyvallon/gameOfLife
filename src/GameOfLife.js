@@ -11,6 +11,10 @@ function Cell(){
             this.state=alive;
         }
     };
+    this.value=function(){
+        if(this.state===alive){return 1;}
+        else if(this.state===dead){return 0;}
+    };
 };
 
 function Board(columns,rows){

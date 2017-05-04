@@ -66,6 +66,20 @@ describe("Game of Life", function() {
             cell.toggleState();
             expect(cell.state.alive).toEqual(false);
             expect(cell.state.dead).toEqual(true);
-        });  
+        }); 
+        
+        it("should have a value of '1' if alive and '0' if dead",function(){
+            expect(cell.state.alive).toEqual(false);
+            expect(cell.state.dead).toEqual(true);
+            expect(cell.value()).toEqual(0);
+            cell.toggleState();
+            expect(cell.state.alive).toEqual(true);
+            expect(cell.state.dead).toEqual(false);
+            expect(cell.value()).toEqual(1);
+            cell.toggleState();
+            expect(cell.state.alive).toEqual(false);
+            expect(cell.state.dead).toEqual(true);
+            expect(cell.value()).toEqual(0);
+        });
     });
 });
