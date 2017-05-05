@@ -1,4 +1,5 @@
 function Cell(x,y){
+    console.log("nextBoard="+nextBoard);
     var alive={alive:true,dead:false};
     var dead={alive:false,dead:true};
     
@@ -21,11 +22,13 @@ function Cell(x,y){
         if(this.state===alive){return 1;}
         else if(this.state===dead){return 0;}
     };
-    
-    
 };
 
 function Board(columns,rows){
+    this.currentBoard=[];
+    this.nextBoard="poop";
+    var currentBoard=this.currentBoard;
+    var nextBoard=this.nextBoard;
     this._dimensions={};
     this._dimensions.columns=columns;
     this._dimensions.rows=rows;

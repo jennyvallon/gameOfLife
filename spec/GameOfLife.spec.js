@@ -103,5 +103,39 @@ describe("Game of Life", function() {
                 }
             } 
         });
+        
+        it("should be able to count it's neighbors",function(){
+//            console.log(board);
+//            var neighbors=[
+//                [x-1,y+1],  [x,y+1],    [x+1,y+1],
+//                [x-1,y],    [x,y],      [x+1,y],
+//                [x-1,y-1],  [x,y-1],    [x+1,y-1]
+//            ];
+            
+            for(i=0;i<board.length;i++){
+                for(j=0;j<board[i].length;j++){
+                    var cell=board[i][j].value,
+                        ul=board[i-1][j+1].value,
+                        u=board[i][j+1].value,
+                        ur=board[i+1][j+1].value,
+                        left=board[i-1][j].value,
+                        right=board[i+1][j].value,
+                        dl=board[i-1][j-1].value,
+                        d=board[i][j-1].value,
+                        dr=board[i+1][j-1].value,
+                        neighbors= ul+u+ur+left+cell+right+dl+dr;
+                    console.log(ul);
+                    console.log(u);
+                    console.log(ur);
+                    console.log(left);
+                    console.log(cell);
+                    console.log(right); 
+                    console.log(dl);
+                    console.log(d);
+                    console.log(dr);
+                    expect(neighbors).toEqual(0);        
+                }
+            }
+        });
     });
 });
